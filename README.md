@@ -1,1 +1,1 @@
-# PM-Avatars
+# Pose Modulated Avatars from Video
