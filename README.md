@@ -6,7 +6,7 @@
 [Chunjin Song](https://chunjinsong.github.io/), [Bastian Wandt](https://bastianwandt.de/), and [Helge Rhodin](http://helge.rhodin.de/) \
 ICLR 2024
 
-<img src="/ubc/cs/home/c/chunjins/chunjin_shield/project/humannerf/freqnerf/code_release/code/imgs/teaser.jpg" width="800" height="223"/> 
+<img src="imgs/teaser.jpg" width="800" height="223"/> 
 
 ##Getting Started
 ### Setup environment
