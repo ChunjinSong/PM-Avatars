@@ -1,0 +1,13 @@
+forward_type: geometry
+
+render_dataset:
+  _target_: run_render.MeshRenderDataset
+  subject: S9
+  h5_path: ../data/h36m_zju/${.subject}_anim.h5
+  idxs: np.arange(1)
+  mcube_resolution: 384
+
+
+model_config: ../outputs/pmavatar_s9/config.yaml
+ckpt_path: ../outputs/pmavatar_s9/latest.th
+output_path: ../outputs/rendering

@@ -1,0 +1,78 @@
+defaults:
+  - basic
+  - dataset: h36m_zju
+
+model:
+  _target_: core.networks.pm_avatar.PmAvatar
+
+  D: 8
+  W: 256
+  view_W: 128
+  voxel_feat: 128
+  skips: [4]
+  use_framecodes: True
+  framecode_ch: 128
+  freq_dim: 256
+  N_pm: 3
+  sin_w0_point: 16.0
+  sin_w0_pose: 8.0
+  lr_freq: 1e-4
+
+  graph_net:
+    _target_: core.networks.gnn_backbone.GNN_Sine
+    W: 128
+    D: 4
+    fc_D: 2
+    opt_scale: True
+    sin_w0: ${model.sin_w0_pose}
+
+  win_fun:
+    _target_: core.networks.network.WinFun
+    sin_w0: ${model.sin_w0_pose}
+  
+  pts_embedder:
+    _target_: core.embedder.embedder.BoneAlignEmbedder
+
+  pts_enc_pose: # use on pose encoding
+    _target_: core.networks.network.PointEnc
+    dim_out: 64
+    sin_w0: ${model.sin_w0_pose}
+
+  pts_enc_point: # use on pose encoding
+    _target_: core.networks.network.PointEnc
+    dim_out: 64
+    sin_w0: ${model.sin_w0_point}
+
+  view_embedder:
+    _target_: core.embedder.embedder.WorldToRootViewEmbedder
+
+  view_posi_enc:
+    _target_: core.embedder.embedder.SHEncoder
+
+  pose_embedder:
+    _target_: core.embedder.embedder.Pose6DEmbedder
+
+  modulator:
+    _target_: core.networks.network.Modulator
+    dim_out: ${model.freq_dim}
+    D: ${model.N_pm}
+    W: ${model.freq_dim}
+    sin_w0: ${model.sin_w0_point}
+
+  pose_extractor:
+    _target_: core.networks.network.PoseExtractor
+    dim_hidden: 128
+    sin_w0: ${model.sin_w0_pose}
+
+  raycaster:
+    _target_: core.utils.raycast.VolRayCast
+    N_samples: 48
+    N_importance: 24
+
+losses:
+  NeRFRGBLoss:
+    fine: 1.0
+    coarse: 1.0
+
+  SigmaLoss:
+    weight: 0.001

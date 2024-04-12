@@ -1,0 +1,8 @@
+_target_: core.dataset.load_perfcap.MonoPerfCapDataset
+h5_path: ../data/monoperfcap/${.subject}_outdoor_corrected.h5
+
+split: train
+patch_size: 1
+subject: weipeng
+mask_img: True
+perturb_bg: True

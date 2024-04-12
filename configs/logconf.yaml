@@ -1,0 +1,47 @@
+version: 1
+#whether overwtite loggers
+disable_existing_loggers: True
+
+formatters:
+
+  tostrout:
+#    format: "%(asctime)s - %(name)s - %(levelname)-9s - %(filename)-8s : %(lineno)s line - %(message)s"
+    format: "%(asctime)s - %(message)s"
+    datefmt: "%Y/%m/%d %H:%M:%S"
+
+  tofile:
+#    format: "%(asctime)s - %(name)s - %(levelname)-9s - %(filename)-8s : %(lineno)s line - %(message)s"
+    format: "%(asctime)s - %(message)s"
+
+handlers:
+  sh:
+    class: logging.StreamHandler
+    level: INFO #WARNING
+    formatter: tostrout
+    stream: ext://sys.stdout
+
+  fh:
+    class: logging.handlers.TimedRotatingFileHandler
+    filename: logconf.log
+    interval: 1
+    backupCount: 2
+    when: D
+    level: INFO
+    formatter: tofile
+
+#loggers:
+#  logger1:
+#    level: DEBUG
+#    handlers: [sh,fh]
+#    #whether propage the log info to the parent node (root node)
+#    propagate: no
+#
+#  logger2:
+#    level: INFO
+#    handlers: [sh,fh]
+#    propagate: no
+
+root:
+  level: DEBUG
+  handlers: [fh]
+  propagate: no

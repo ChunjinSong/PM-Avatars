@@ -1,0 +1,8 @@
+_target_: core.dataset.load_zju.ZJUH36MDataset
+h5_path: ../data/h36m_zju/${.subject}_train.h5
+
+split: train
+patch_size: 1
+subject: S9
+mask_img: True
+perturb_bg: True

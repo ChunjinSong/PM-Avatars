@@ -1,0 +1,14 @@
+render_dataset:
+  _target_: run_render.BaseRenderDataset
+  subject: S9
+  eval_type: 'anim'
+  idxs: np.arange(67)
+
+  h5_path: ../data/h36m_zju/${.subject}_${.eval_type}.h5
+  resolution: [1000, 1000]
+  cam_overwrite: -1
+  bkgd_to_use: black
+
+model_config: ../outputs/pmavatar_s9/config.yaml
+ckpt_path: ../outputs/pmavatar_s9/latest.th
+output_path: ../outputs/rendering
