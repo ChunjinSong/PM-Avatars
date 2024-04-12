@@ -1,6 +1,6 @@
 # Pose Modulated Avatars from Video
 
-## [Paper](https://openreview.net/pdf?id=5t44vPlv9x) | [Project Page](https://chunjinsong.github.io/pmavatar/)
+## [Paper](https://openreview.net/pdf?id=5t44vPlv9x) | [Project Page](https://chunjinsong.github.io/PM-Avatars/)
 
 ### Pose Modulated Avatars from Video
 [Chunjin Song](https://chunjinsong.github.io/), [Bastian Wandt](https://bastianwandt.de/), and [Helge Rhodin](http://helge.rhodin.de/) \
