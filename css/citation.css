@@ -1,0 +1,12 @@
+.citation {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 20px auto;
+  margin-bottom: 40px;
+  padding: 20px 40px;
+  max-width: 944px;
+  font-weight: 400;
+  font-size: 15px;
+  color: #555
+}

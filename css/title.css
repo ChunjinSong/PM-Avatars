@@ -1,0 +1,41 @@
+.title {
+  overflow: hidden;
+  text-align: center;
+  margin: 20px auto;
+  padding: 0px 10px;
+  max-width: 1024px;
+  font-weight: 550;
+  font-size: 40px;
+  color: #555
+}
+
+.author {
+  overflow: hidden;
+  max-width: 1024px;
+  text-align: left;
+  margin: 0px auto;
+  font-size: 25px;
+}
+
+.author a {
+  margin: 40px 60px;
+  font-size: 25px;
+  font-weight: 350;
+  color: #1367a7;
+}
+
+.author a.links {
+  margin: 40px 60px;
+  font-size: 20px;
+  font-weight: 350;
+  color: #1367a7;
+  text-align: center;
+}
+
+.author affiliation {
+  margin: 20px 60px;
+  font-size: 25px;
+  font-weight: 350;
+  display: block;
+  text-align: center;
+}

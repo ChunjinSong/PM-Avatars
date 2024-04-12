@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>PM-Avatars</title>
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/citation.css">
+    <link rel="stylesheet" href="css/title.css">
+    <meta name="google-site-verification" content="QZBN3L69Q-c1oJGtwBx3eOj6ugnkjS7Q2tZUGm-VTkA"/>
+</head>
+
+<body>
+    <div class="header" id="home" style="padding-bottom: 90px;"></div>
+
+    <section class="title">
+        PM-Avatars: Pose Modulated Avatars from Video
+    </section>
+
+    <section class="author">
+        <affiliation>ICLR 2024</affiliation>
+        <table>
+            <tr>
+                <td><a href="https://chunjinsong.github.io/">Chunjin Song <sup>1</sup></a></td>
+                <td><a href="https://bastianwandt.de/">Bastian Wandt <sup>3</sup></a></td>
+                <td><a href="https://www.cs.ubc.ca/~rhodin/web/">Helge Rhodin<sup>1,2</sup></a></td>
+            </tr>
+        </table>
+
+        <affiliation><sup>1</sup>The University of British Columbia</affiliation>
+        <affiliation><sup>2</sup>Bielefeld University</affiliation>
+        <affiliation><sup>3</sup>Linköping University</affiliation>
+        <affiliation><a href="https://openreview.net/pdf?id=5t44vPlv9x" class="links">[paper]</a>
+            <a href="https://github.com/ChunjinSong/PM-Avatars" class="links">[code]</a></affiliation>
+
+    </section>
+
+     <div class="container">
+        <img style='height: 100%; width: 100%; object-fit: contain' src="vid/teaser.jpg">
+        <p>
+        Our frequency modulation approach enables pose-dependent detail by using explicit frequencies that depend on the pose context, varying over frames and across subjects.  Our mapping mitigates artifacts in smooth regions as well as synthesizes fine geometric details faithfully, e.g., when wrinkles are present (first row). By contrast, existing surface-free representations struggle either with fine details (e.g. marker) or introduce noise artifacts in uniform regions (e.g. the black clouds, second row). To quantify the difference in frequency of these cases, we calculate the standard deviation (STD) pixels within 5x5 patches of the input closeup and illustrate the frequency histograms of the reference. Even for the same subject in similar pose the frequency distributions are distinct, motivating our pose-dependent frequency formulation.
+        </p>
+    </div>
+
+    <div class="header" id="abstract">Abstract</div>
+    <div class="line"></div>
+
+    <div class="container">
+        <p>
+        It is now possible to reconstruct dynamic human motion and shape from a sparse set of cameras using Neural Radiance Fields (NeRF) driven by an underlying skeleton. However, a challenge remains to model the deformation of cloth and skin in relation to skeleton pose. Unlike existing avatar models that are learned implicitly or rely on a proxy surface, our approach is motivated by the observation that different poses necessitate unique frequency assignments. Neglecting this distinction yields noisy artifacts in smooth areas or blurs fine-grained texture and shape details in sharp regions. We develop a two-branch neural network that is adaptive and explicit in the frequency domain. The first branch is a graph neural network that models correlations among body parts locally, taking skeleton pose as input. The second branch combines these correlation features to a set of global frequencies and then modulates the feature encoding. Our experiments demonstrate that our network outperforms state-of-the-art methods in terms of preserving details and generalization capabilities.
+        </p>
+    </div>
+
+    <h1 class="header" id="results">Architecture</h1>
+    <div class="line"></div>
+    <div class="container">
+        <img style='height: 100%; width: 100%; object-fit: contain' src="vid/overview.jpg">
+        <p>
+            <b>Overall architecture.</b>
+        First, a graph neural network takes a skeleton pose as input to encode correlations of joints. Together with the relative coordinates x&#772;<sub>i</sub> of query point x, a window function is learned to aggregate the features from all parts. Then the aggregated GNN features are used to compute frequency coefficients (orange) which later modulate the feature transformation of point x (green). Finally,  density and appearance is predicted as in NeRF.
+
+        </p>
+    </div>
+    <div class="container">
+        <img style='height: 100%; width: 100%; object-fit: contain' src="vid/win_function.jpg">
+        <p>
+            <b>Window function.</b>
+        The query point location is processed with a spatial and pose-dependent window to remove spurious correlations between distant joints.
+        </p>
+    </div>
+
+    <h1 class="header" id="speech_results">Results</h1>
+    <div class="line"></div>
+    <div class="container">
+        <img style='height: 100%; width: 100%; object-fit: contain' src="vid/comp_nv.jpg">
+        <p>
+        <b>Visual comparisons for novel view synthesis.</b>
+            Compared to baselines, we can vividly reproduce the structured patterns.
+        </p>
+    </div>
+    <div class="container">
+        <img style='height: 100%; width: 100%; object-fit: contain' src="vid/comp_np.jpg">
+        <p>
+        <b>Visual comparisons for novel pose rendering.</b>
+            For novel poses that are unseen during training, cloth wrinkles form chaotically. Hence, none of the methods is expected to match the folds. Ours yields the highest detail, including the highlighted marker texture.
+        </p>
+    </div>
+    <div class="container">
+        <img style='height: 100%; width: 100%; object-fit: contain' src="vid/geometry.jpg">
+        <p>
+        <b>Geometry reconstruction.</b>
+        Our method yields more precise, less noisy shape estimates. Some noise remains as no template mesh or other surface prior is used.
+        </p>
+    </div>
+
+
+    <h1 class="header" id="env_results">Video</h1>
+    <div class="line"></div>
+    <div class="container">
+        <video width="220" height="400" controls>
+          <source src="vid/video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <p>
+
+        </p>
+    </div>
+
+    <section class="citation">
+        @inproceedings{</br>
+            song2024pose,</br>
+            title={Pose Modulated Avatars from Video},</br>
+            author={Chunjin Song and Bastian Wandt and Helge Rhodin},</br>
+            booktitle={The Twelfth International Conference on Learning Representations},</br>
+            year={2024},</br>
+            url={https://openreview.net/forum?id=5t44vPlv9x}</br>
+            }
+    </section>
+
+</body>
+
+</html>

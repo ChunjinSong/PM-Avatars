@@ -1,0 +1,50 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+p {
+  line-height: 1.5em;
+  padding: 10px 0px;
+}
+
+a {
+  color: RoyalBlue;
+  text-decoration: none;
+}
+
+video {
+  margin: 20px auto;
+  display: block;
+  width: 800px;
+  max-width: 98%;
+}
+
+.line {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  margin-bottom: -10px;
+  width: 1024px;
+  max-width: 98%;
+  border-top: solid #ACC0D8 1px;
+}
+
+.container {
+  overflow: hidden;
+  text-align: left;
+  margin: 20px auto;
+  padding: 0px 10px;
+  max-width: 1024px
+}
+
+.header {
+  text-align: left;
+  margin: -50px auto;
+  padding: 70px 10px 30px 10px;
+  font-size: 30px; 
+  font-weight: 700;
+  max-width: 1024px
+}
