@@ -1,4 +1,4 @@
-#Pose Modulated Avatars from Video
+# Pose Modulated Avatars from Video
 
 ## [Paper](https://openreview.net/pdf?id=5t44vPlv9x) | [Project Page](https://chunjinsong.github.io/pmavatar/)
 
@@ -8,7 +8,7 @@ ICLR 2024
 
 <img src="imgs/teaser.jpg" width="800" height="223"/> 
 
-##Getting Started
+## Getting Started
 ### Setup environment
 ```
 conda create -n pmavatar python=3.8
@@ -52,7 +52,7 @@ For example, assuming you have trained a PM-Avatar model with log file saved in 
 python run_render.py --config-name=h36m_zju model_config=log/pmavatar/config.yaml ckpt_path=log/pmavatar/latest.th output_path=log/danbo/rendered
 ```
 
-###Dataset
+### Dataset
 
 You can find dataset configuration in `configs/dataset`.
 
